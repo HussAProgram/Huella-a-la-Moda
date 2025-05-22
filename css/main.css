@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+h2, h3{
+    font-family: "Comic Neue", sans-serif;
+    color: #12709e;
+}
+
+.bg-pattern{
+    background-color: #c3eef5;
+    background-size: cover;
+}
+
+.bg-header{
+    background-color: #12709e;
+}
+
+/* desktop flotan 4 por fila */
+.imagesFlex {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+  
+.imagesFlex div {
+    width: 24%;
+    margin-top: 20px;
+}
+  
+.imagesFlex div img {
+    width: 100%;
+}
+  
+/* flotan 2 por fila */
+@media (width <= 992px) {
+    .imagesFlex div {
+      width: 49%;
+    }
+}
+/* uno por fila */
+@media (width <= 480px) {
+    .imagesFlex div {
+      width: 100%;
+    }
+}
+
+h2{
+    margin-left: 90px;
+}
+
+.buttons{
+    width: 70vh;
+}
+
+@media screen and (max-width: 320px) {
+    .buttons{
+        width: 32vh;
+    }
+    h2{
+        margin-left: 58px;
+    }
+}
+@media screen and (min-width: 480px) {
+    .buttons{
+        width: 55vh;
+    }
+}
+@media screen and (min-width: 600px) {
+    .buttons{
+        width: 35vh;
+    }   
+}
+@media screen and (min-width: 768px) {
+    .buttons{
+        width: 47vh;
+    }
+}
+@media screen and (min-width: 1023px) {
+    .buttons{
+        width: 26vh;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .buttons{
+        width: 24vh;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .buttons{
+        width: 26vh;
+    }
+}
+@media (width > 1200px) {
+    .buttons{
+        width: 44vh;
+    }
+}
