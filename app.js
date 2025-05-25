@@ -1,9 +1,11 @@
 function InicioDeSesion() {
-    let NombreApellidoyCorreo = prompt("Brinde su nombre,apellido y su correo separado por una coma del nombre");
+    let NombreApellidoyCorreo = prompt("Brindenos su nombre, apellido y correo para guardar sus preferencias");
         alert("Los datos ingresados son:" + NombreApellidoyCorreo)
         console.log (NombreApellidoyCorreo);
 }
-InicioDeSesion();
+const Cookies = prompt(
+    `¿ Aceptar cookies ?
+    Si  No`)
 const Carrito = [];
 const Productos = {
     Prod1:"Campera de Invierno",
@@ -13,8 +15,8 @@ const Productos = {
 }
 const IVA = 1.21;
 const resultadoConIVA = (precio) => precio * IVA;
-let TotalCarrito = 0
-let ContinuarEnTienda = true
+let TotalCarrito = 0;
+let ContinuarEnTienda = true;
 while (ContinuarEnTienda) {
     let Bienvenida = prompt(
         `Bienvenido a Huella a la Moda Virtual, eliga una de las siguientes opciones: 
@@ -64,4 +66,5 @@ while (ContinuarEnTienda) {
         ContinuarEnTienda = false;
     }
 }
+InicioDeSesion();
 
