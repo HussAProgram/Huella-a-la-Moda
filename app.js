@@ -1,70 +1,122 @@
-function InicioDeSesion() {
-    let NombreApellidoyCorreo = prompt("Brindenos su nombre, apellido y correo para guardar sus preferencias");
-        alert("Los datos ingresados son:" + NombreApellidoyCorreo)
-        console.log (NombreApellidoyCorreo);
+let Cookies = localStorage.getItem("Cookies");
+if (!Cookies) {
+    Cookies = prompt(`¿Aceptar cookies? (Si / No)`);
+    if (Cookies) {
+        localStorage.setItem("Cookies", Cookies);
+    }
 }
-const Cookies = prompt(
-    `¿ Aceptar cookies ?
-    Si  No`)
 const Carrito = [];
 const Productos = {
-    Prod1:"Campera de Invierno",
-    Prod2:"Sombrero de Verano",
-    Prod3:"Camiseta de Primavera",
-    Prod4:"Zapatillas"
+    Prod1:"Campera", Valor1:24000,
+    Prod2:"Sombrero", Valor2:15000,
+    Prod3:"Zapatilla", Valor3:10000
 }
 const IVA = 1.21;
 const resultadoConIVA = (precio) => precio * IVA;
 let TotalCarrito = 0;
-let ContinuarEnTienda = true;
-while (ContinuarEnTienda) {
-    let Bienvenida = prompt(
-        `Bienvenido a Huella a la Moda Virtual, eliga una de las siguientes opciones: 
-        1-Ver productos 
-        2-Ver carrito 
-        ESC-Salir`
-    );
-    if (Bienvenida == 1) {
-        let continuar = true;
-        while (continuar) {
-            let ElegirProducto = prompt(
-                `Eliga que producto decide añadir al carrito:
-                    1-Campera de Invierno $24.000 
-                    2-Sombrero de Verano $15.000
-                    3-Camiseta de Primavera $20.000 
-                    4-Zapatillas $10.000
-                    5-Volver al Menu
-                    Recuerda que nuestros productos tienen IVA, este se vera reflejado en el carrito !`
-            );
-            if (ElegirProducto == 1) {
-                Carrito.push ({ Prod1: "Campera de Invierno" });
-                TotalCarrito += resultadoConIVA(24000);
-            }  switch (ElegirProducto) {
-                case "2":
-                    Carrito.push ({ Prod2: "Sombrero de Verano" });
-                    TotalCarrito += resultadoConIVA(15000)
-                    break;
-                case "3":
-                    Carrito.push ({ Prod3: "Camiseta de Primavera" });
-                    TotalCarrito += resultadoConIVA(20000)
-                    break;
-                case "4":
-                    Carrito.push ({ Prod4: "Zapatillas" });
-                    TotalCarrito += resultadoConIVA(10000)
-                    break;
-                case "5":
-                    continuar = false
-                    break;
-            } 
-        }
-    } else if (Bienvenida == 2) {
-        alert("El total del carrito es: $" + TotalCarrito);
-        console.log (TotalCarrito);
-        console.log(Carrito);
-    } else if (Bienvenida.toLowerCase() == "esc" ) {
-        alert ("Muchisimas gracias por su compra ! Que su perro vista a la moda !");
-        ContinuarEnTienda = false;
-    }
-}
-InicioDeSesion();
 
+let BotonDeTotal = document.getElementById("BotonCarrito");
+BotonDeTotal.addEventListener("click",function MostrarCarrito(){
+        if (Carrito.length === 0) {
+            alert("Tu carrito está vacío. Agregá productos antes de comprar.");
+            return;
+        } else {
+            alert ("El contenido del carrito es:" + Carrito) 
+            alert("El total de su carrito es: $" + TotalCarrito);
+        }
+    })
+
+let Campera = document.getElementsByClassName("ComprarCampera");
+Campera[0].addEventListener("click", function ComprarCampera(){
+    Carrito.push ({ Prod1: "Campera" });
+    TotalCarrito += resultadoConIVA(24000);
+})
+Campera[1].addEventListener("click", function ComprarCampera(){
+    Carrito.push ({ Prod1: "Campera" });
+    TotalCarrito += resultadoConIVA(24000);
+})
+Campera[2].addEventListener("click", function ComprarCampera(){
+    Carrito.push ({ Prod1: "Campera" });
+    TotalCarrito += resultadoConIVA(24000);
+})
+
+let Zapatilla = document.getElementsByClassName("ComprarZapatilla");
+Zapatilla[0].addEventListener("click", function ComprarZapatilla(){
+    Carrito.push ({ Prod2: "Zapatilla" });
+    TotalCarrito += resultadoConIVA(10000);
+})
+Zapatilla[1].addEventListener("click", function ComprarZapatilla(){
+    Carrito.push ({ Prod2: "Zapatilla" });
+    TotalCarrito += resultadoConIVA(10000);
+})
+Zapatilla[2].addEventListener("click", function ComprarZapatilla(){
+    Carrito.push ({ Prod2: "Zapatilla" });
+    TotalCarrito += resultadoConIVA(10000);
+})
+
+let Sombrero = document.getElementsByClassName("ComprarSombrero");
+Sombrero[0].addEventListener("click", function ComprarSombrero(){
+    Carrito.push ({ Prod3: "Sombrero" });
+    TotalCarrito += resultadoConIVA(15000);
+})
+Sombrero[1].addEventListener("click", function ComprarSombrero(){
+    Carrito.push ({ Prod3: "Sombrero" });
+    TotalCarrito += resultadoConIVA(15000);
+})
+Sombrero[2].addEventListener("click", function ComprarSombrero(){
+    Carrito.push ({ Prod3: "Sombrero" });
+    TotalCarrito += resultadoConIVA(15000);
+})
+
+const productosDisponibles = [
+    { nombre: "Campera de Invierno", precio: 24000 },
+    { nombre: "Botas de Invierno", precio: 10000 },
+    { nombre: "Gorro de Invierno", precio: 15000 },
+    { nombre: "Campera de Primavera", precio: 24000 },
+    { nombre: "Zapatillas de Primavera", precio: 10000 },
+    { nombre: "Gorro de Primavera", precio: 15000 },
+    { nombre: "Campera de Verano", precio: 24000 },
+    { nombre: "Ojotas de Verano", precio: 10000 },
+    { nombre: "Sombrero de Verano", precio: 15000 },
+];
+
+const buscadorInput = document.getElementById("buscador");
+
+buscadorInput.addEventListener("input", () => {
+    const texto = buscadorInput.value.toLowerCase();
+    const productos = document.querySelectorAll("section.imagesFlex div");
+
+    productos.forEach(producto => {
+        const titulo = producto.querySelector("h3").textContent.toLowerCase();
+        if (titulo.includes(texto)) {
+            producto.style.display = "block";
+        } else {
+            producto.style.display = "none";
+        }
+    });
+});
+
+const btnSesion = document.getElementById("btnIniciarSesion");
+const formularioSesion = document.getElementById("formularioSesion");
+const btnEnviarSesion = document.getElementById("btnEnviarSesion");
+
+btnSesion.addEventListener("click", () => {
+    formularioSesion.style.display = formularioSesion.style.display === "none" ? "block" : "none";
+});
+
+btnEnviarSesion.addEventListener("click", () => {
+    const nombre = document.getElementById("nombre").value.trim();
+    const apellido = document.getElementById("apellido").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+
+    if (nombre && apellido && correo) {
+        const usuario = { nombre, apellido, correo };
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+
+        alert(`Bienvenido/a ${nombre} ${apellido}\nCorreo: ${correo}`);
+        console.log("Usuario guardado:", usuario);
+        formularioSesion.style.display = "none";
+    } else {
+        alert("Por favor completá todos los campos.");
+    }
+});
