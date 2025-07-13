@@ -1,0 +1,65 @@
+[
+  {
+    "nombre": "Campera de Invierno",
+    "precio": 24000,
+    "imagen": "images/CamperaInvierno.png",
+    "categoria": "Invierno",
+    "tipo": "Campera"
+  },
+  {
+    "nombre": "Botas de Invierno",
+    "precio": 10000,
+    "imagen": "images/BotasInvierno.png",
+    "categoria": "Invierno",
+    "tipo": "Zapatilla"
+  },
+  {
+    "nombre": "Gorro de Invierno",
+    "precio": 15000,
+    "imagen": "images/SombreroInvierno.png",
+    "categoria": "Invierno",
+    "tipo": "Sombrero"
+  },
+  {
+    "nombre": "Campera de Primavera",
+    "precio": 24000,
+    "imagen": "images/CamperaPrimavera.png",
+    "categoria": "Primavera",
+    "tipo": "Campera"
+  },
+  {
+    "nombre": "Zapatillas de Primavera",
+    "precio": 10000,
+    "imagen": "images/ZapatillasPrimavera.png",
+    "categoria": "Primavera",
+    "tipo": "Zapatilla"
+  },
+  {
+    "nombre": "Gorro de Primavera",
+    "precio": 15000,
+    "imagen": "images/SombreroPrimavera.png",
+    "categoria": "Primavera",
+    "tipo": "Sombrero"
+  },
+  {
+    "nombre": "Campera de Verano",
+    "precio": 24000,
+    "imagen": "images/CamperaVerano.png",
+    "categoria": "Verano",
+    "tipo": "Campera"
+  },
+  {
+    "nombre": "Ojotas de Verano",
+    "precio": 10000,
+    "imagen": "images/OjotasVerano.png",
+    "categoria": "Verano",
+    "tipo": "Zapatilla"
+  },
+  {
+    "nombre": "Sombrero de Verano",
+    "precio": 15000,
+    "imagen": "images/SombreroVerano.png",
+    "categoria": "Verano",
+    "tipo": "Sombrero"
+  }
+]

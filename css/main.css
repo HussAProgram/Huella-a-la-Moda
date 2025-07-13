@@ -1,96 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-h2, h3{
-    font-family: "Comic Neue", sans-serif;
-    color: #12709e;
-}
 
 .bg-pattern{
     background-color: #c3eef5;
     background-size: cover;
 }
+    
+/* Encabezados */
+h2, h3, p {
+    color: #12709e;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-family: "Comic Neue", sans-serif;
+}
 
-.bg-header{
+/* Navbar personalizada */
+.bg-header {
     background-color: #12709e;
 }
 
-/* desktop flotan 4 por fila */
+/* Secciones de productos */
 .imagesFlex {
-    padding: 20px 50px;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 20px;
 }
-  
+
 .imagesFlex div {
-    width: 24%;
-    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
 }
-  
+
 .imagesFlex div img {
     width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
-  
-/* flotan 2 por fila */
-@media (width <= 992px) {
+
+/* Botones comprar */
+.buttons {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer .card-body {
+    background-color: #12709e;
+}
+
+footer img {
+    width: 50px;
+    height: auto;
+}
+
+/* Media Queries adicionales */
+@media screen and (max-width: 576px) {
+    .imagesFlex {
+        padding: 10px;
+    }
+
     .imagesFlex div {
-      width: 49%;
+        max-width: 100%;
     }
 }
-/* uno por fila */
-@media (width <= 480px) {
+
+@media screen and (min-width: 577px) and (max-width: 992px) {
     .imagesFlex div {
-      width: 100%;
+        max-width: 48%;
     }
 }
 
-h2{
-    margin-left: 90px;
+@media screen and (min-width: 993px) {
+    .imagesFlex div {
+        max-width: 23%;
+    }
 }
 
-.buttons{
-    width: 70vh;
+#contadorCarrito {
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
-@media screen and (max-width: 320px) {
-    .buttons{
-        width: 32vh;
-    }
-    h2{
-        margin-left: 58px;
-    }
+#contadorCarrito.animado {
+  transform: scale(1.4);
 }
-@media screen and (min-width: 480px) {
-    .buttons{
-        width: 55vh;
-    }
+
+.imagesFlex div {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
 }
-@media screen and (min-width: 600px) {
-    .buttons{
-        width: 35vh;
-    }   
+.imagesFlex div.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-@media screen and (min-width: 768px) {
-    .buttons{
-        width: 47vh;
-    }
+
+.imagesFlex img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
-@media screen and (min-width: 1023px) {
-    .buttons{
-        width: 26vh;
-    }
+.imagesFlex img:hover {
+  transform: scale(1.05);
 }
-@media screen and (min-width: 1024px) {
-    .buttons{
-        width: 24vh;
-    }
+
+@keyframes flash {
+  0% { background-color: #0d6efd; }
+  50% { background-color: #198754; color: black; }
+  100% { background-color: #0d6efd; color: white; }
 }
-@media screen and (min-width: 1200px) {
-    .buttons{
-        width: 26vh;
-    }
+
+.boton-flash {
+  animation: flash 0.4s ease;
 }
-@media (width > 1200px) {
-    .buttons{
-        width: 44vh;
-    }
-}
+

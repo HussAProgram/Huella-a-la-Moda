@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="/css/main.css">
     <!--CSS Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!--Script Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-pattern">
   <!--NavBar-->
   <nav class="navbar navbar-expand-lg bg-header">
     <div class="container-fluid">
@@ -26,19 +28,91 @@
           <a class="nav-link" href="/pages/dogsign.html"><h3>Dog-Sign</h3></a>
         </div>
       </div>
-      <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar Producto" aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
     </div>
   </nav>
+  <!-- Sección Presentación -->
+<section class="container py-5">
+  <h3 class="text-center mb-4">¿Quiénes somos?</h3>
+  <h4 class="lead text-center">
+    En <strong>Huella a la Moda</strong> diseñamos ropa para perros hecha con materiales naturales y tintes ecológicos.
+    Nuestra misión es vestir a tus mascotas con amor, estilo y conciencia ambiental.
+  </h4>
+</section>
+
+<!-- Sección del equipo -->
+<section class="container py-5">
+  <h3 class="text-center mb-4">Nuestro equipo</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- Jefe 1 -->
+    <div class="col">
+      <div class="card h-100 text-center">
+        <img src="/images/Yo.jpeg" class="card-img-top" alt="Jefe 1">
+        <div class="card-body">
+          <h5 class="card-title">Agustin Huss</h5>
+          <p class="card-text">Fundador y diseñador principal</p>
+        </div>
+      </div>
+    </div>
+    <!-- Jefe 2 -->
+    <div class="col">
+      <div class="card h-100 text-center">
+        <img src="/images/Chavi.jpeg" class="card-img-top" alt="Jefe 2">
+        <div class="card-body">
+          <h5 class="card-title">Bautista Piazza Gardenal</h5>
+          <p class="card-text">Co-fundador y encargado de producción</p>
+        </div>
+      </div>
+    </div>
+    <!-- Empleado 1 -->
+    <div class="col">
+      <div class="card h-100 text-center">
+        <img src="/images/Lauti.jpeg" class="card-img-top" alt="Empleado 1">
+        <div class="card-body">
+          <h5 class="card-title">Lautaro Aranda</h5>
+          <p class="card-text">Compras y Almacenamiento</p>
+        </div>
+      </div>
+    </div>
+    <!-- Empleado 2 -->
+    <div class="col">
+      <div class="card h-100 text-center">
+        <img src="/images/Exe.jpg" class="card-img-top" alt="Empleado 2">
+        <div class="card-body">
+          <h5 class="card-title">Juan Martin Perez Elorga</h5>
+          <p class="card-text">Logística y Ventas</p>
+        </div>
+      </div>
+    </div>
+    <!-- Empleado 3 -->
+    <div class="col">
+      <div class="card h-100 text-center">
+        <img src="/images/Brunito.jpeg" class="card-img-top" alt="Empleado 3">
+        <div class="card-body">
+          <h5 class="card-title">Bruno Vanzini Ceriale</h5>
+          <p class="card-text">Diseño e Innovación</p>
+        </div>
+      </div>
+    </div>
+    <!-- Empleado 4 -->
+    <div class="col">
+      <div class="card h-100 text-center">
+        <img src="/images/Liz.jpeg" class="card-img-top" alt="Empleado 4">
+        <div class="card-body">
+          <h5 class="card-title">Liz Mia Szmilowski</h5>
+          <p class="card-text">Asistente de producción</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!--Footer-->
   <footer>
     <div class="card text-center">
       <div class="card-body bg-header">
         <h5 class="card-title">¡SIGUENOS!</h5>
-        <p class="card-text">Instagram</p>
-        <a href="https://www.instagram.com/" class="btn btn-primary"><img src="/images/Instagram.png" alt=""></a>
+        <h6 class="card-text">Instagram</h6>
+        <a href="https://www.instagram.com/huellaalamoda_/?utm_source=ig_web_button_share_sheet" class="btn btn-primary"><img src="/images/Instagram.png" alt=""></a>
       </div>
     </div>
   </footer>

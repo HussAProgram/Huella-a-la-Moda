@@ -1,122 +1,136 @@
+// Cookies
 let Cookies = localStorage.getItem("Cookies");
 if (!Cookies) {
-    Cookies = prompt(`¿Aceptar cookies? (Si / No)`);
+    Cookies = Swal.fire({
+        title: "¿Aceptar las cookies?",
+        showDenyButton: true,
+        confirmButtonText: "Sí",
+        denyButtonText: `No`
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire("Gracias, nos ayudas a mejorar tu experiencia!", "", "success");
+        } else if (result.isDenied) {
+            Swal.fire("Lamentamos que no te unas a nuestra base de datos :(", "", "error");
+        }
+    });
     if (Cookies) {
         localStorage.setItem("Cookies", Cookies);
     }
 }
-const Carrito = [];
-const Productos = {
-    Prod1:"Campera", Valor1:24000,
-    Prod2:"Sombrero", Valor2:15000,
-    Prod3:"Zapatilla", Valor3:10000
-}
-const IVA = 1.21;
-const resultadoConIVA = (precio) => precio * IVA;
-let TotalCarrito = 0;
 
-let BotonDeTotal = document.getElementById("BotonCarrito");
-BotonDeTotal.addEventListener("click",function MostrarCarrito(){
-        if (Carrito.length === 0) {
-            alert("Tu carrito está vacío. Agregá productos antes de comprar.");
-            return;
-        } else {
-            alert ("El contenido del carrito es:" + Carrito) 
-            alert("El total de su carrito es: $" + TotalCarrito);
+const IVA = 1.21;
+let TotalCarrito = 0;
+const Carrito = [];
+
+// Cargar productos asincrónicamente
+fetch("productos.json")
+    .then(response => response.json())
+    .then(productos => {
+        productos.forEach(crearProducto);
+
+        // Buscador: Se activa DESPUÉS de que los productos se agregan al DOM
+        const buscadorInput = document.getElementById("buscador");
+        buscadorInput.addEventListener("input", () => {
+            const texto = buscadorInput.value.toLowerCase();
+            const cards = document.querySelectorAll("section.imagesFlex div");
+
+            cards.forEach(card => {
+                const titulo = card.querySelector("h3").textContent.toLowerCase();
+                if (titulo.includes(texto)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    })
+    .catch(error => {
+        console.error("Error al cargar productos:", error);
+        Swal.fire("Error", "No se pudieron cargar los productos.", "error");
+    });
+
+// Función crear producto
+function crearProducto(producto) {
+    const contenedor = document.getElementById(producto.categoria.toLowerCase());
+
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <h3>${producto.nombre}</h3>
+        <img src="${producto.imagen}" class="rounded img-fluid" alt="${producto.nombre}">
+        <button class="btn btn-primary buttons">COMPRAR $${producto.precio}</button>
+    `;
+
+    const boton = div.querySelector("button");
+    boton.addEventListener("click", () => {
+        Carrito.push({ nombre: producto.nombre });
+        TotalCarrito += producto.precio * IVA;
+        document.getElementById("contadorCarrito").textContent = Carrito.length;
+        const contador = document.getElementById("contadorCarrito");
+        contador.classList.add("animado");
+        setTimeout(() => contador.classList.remove("animado"), 200);
+        boton.classList.add("boton-flash");
+        setTimeout(() => boton.classList.remove("boton-flash"), 400);
+        Toastify({
+            text: `${producto.nombre} añadido al carrito`,
+            duration: 3000,
+            avatar: `${producto.imagen}`,
+            style: {
+                background: "#12709e",
+            }
+        }).showToast();
+    });
+
+    contenedor.appendChild(div);
+    setTimeout(() => div.classList.add("visible"), 50);
+}
+
+// Botón del carrito
+document.getElementById("BotonCarrito").addEventListener("click", function () {
+    if (Carrito.length === 0) {
+        Swal.fire({
+            text: "El carrito está vacío, por favor añade productos",
+            icon: "error",
+        });
+        return;
+    }
+
+// Agrupar productos por nombre
+    const resumen = {};
+    Carrito.forEach(item => {
+    if (resumen[item.nombre]) {
+        resumen[item.nombre]++;
+    } else {
+        resumen[item.nombre] = 1;
+    }
+    });
+
+// Convertir a string: Producto x cantidad
+    const nombres = Object.entries(resumen)
+        .map(([nombre, cantidad]) => {
+        return cantidad > 1 ? `${nombre} x${cantidad}` : nombre;
+    })
+    .join(", ");
+
+    Swal.fire({
+        title: "🛒",
+        text: `El total del carrito es: $${TotalCarrito.toFixed(2)}
+        Productos: ${nombres}`,
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Comprar",
+            denyButtonText: `Vaciar Carrito`,
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire("Muchas gracias por su compra! Que su perro vista a la moda", "", "success");
+            TotalCarrito = 0;
+            Carrito.length = 0;
+            document.getElementById("contadorCarrito").textContent = "0";
+        } else if (result.isDenied) {
+            Swal.fire("Carrito vaciado con éxito, añade nuevos productos", "", "warning");
+            TotalCarrito = 0;
+            Carrito.length = 0;
+            document.getElementById("contadorCarrito").textContent = "0";
         }
     })
-
-let Campera = document.getElementsByClassName("ComprarCampera");
-Campera[0].addEventListener("click", function ComprarCampera(){
-    Carrito.push ({ Prod1: "Campera" });
-    TotalCarrito += resultadoConIVA(24000);
-})
-Campera[1].addEventListener("click", function ComprarCampera(){
-    Carrito.push ({ Prod1: "Campera" });
-    TotalCarrito += resultadoConIVA(24000);
-})
-Campera[2].addEventListener("click", function ComprarCampera(){
-    Carrito.push ({ Prod1: "Campera" });
-    TotalCarrito += resultadoConIVA(24000);
-})
-
-let Zapatilla = document.getElementsByClassName("ComprarZapatilla");
-Zapatilla[0].addEventListener("click", function ComprarZapatilla(){
-    Carrito.push ({ Prod2: "Zapatilla" });
-    TotalCarrito += resultadoConIVA(10000);
-})
-Zapatilla[1].addEventListener("click", function ComprarZapatilla(){
-    Carrito.push ({ Prod2: "Zapatilla" });
-    TotalCarrito += resultadoConIVA(10000);
-})
-Zapatilla[2].addEventListener("click", function ComprarZapatilla(){
-    Carrito.push ({ Prod2: "Zapatilla" });
-    TotalCarrito += resultadoConIVA(10000);
-})
-
-let Sombrero = document.getElementsByClassName("ComprarSombrero");
-Sombrero[0].addEventListener("click", function ComprarSombrero(){
-    Carrito.push ({ Prod3: "Sombrero" });
-    TotalCarrito += resultadoConIVA(15000);
-})
-Sombrero[1].addEventListener("click", function ComprarSombrero(){
-    Carrito.push ({ Prod3: "Sombrero" });
-    TotalCarrito += resultadoConIVA(15000);
-})
-Sombrero[2].addEventListener("click", function ComprarSombrero(){
-    Carrito.push ({ Prod3: "Sombrero" });
-    TotalCarrito += resultadoConIVA(15000);
-})
-
-const productosDisponibles = [
-    { nombre: "Campera de Invierno", precio: 24000 },
-    { nombre: "Botas de Invierno", precio: 10000 },
-    { nombre: "Gorro de Invierno", precio: 15000 },
-    { nombre: "Campera de Primavera", precio: 24000 },
-    { nombre: "Zapatillas de Primavera", precio: 10000 },
-    { nombre: "Gorro de Primavera", precio: 15000 },
-    { nombre: "Campera de Verano", precio: 24000 },
-    { nombre: "Ojotas de Verano", precio: 10000 },
-    { nombre: "Sombrero de Verano", precio: 15000 },
-];
-
-const buscadorInput = document.getElementById("buscador");
-
-buscadorInput.addEventListener("input", () => {
-    const texto = buscadorInput.value.toLowerCase();
-    const productos = document.querySelectorAll("section.imagesFlex div");
-
-    productos.forEach(producto => {
-        const titulo = producto.querySelector("h3").textContent.toLowerCase();
-        if (titulo.includes(texto)) {
-            producto.style.display = "block";
-        } else {
-            producto.style.display = "none";
-        }
-    });
-});
-
-const btnSesion = document.getElementById("btnIniciarSesion");
-const formularioSesion = document.getElementById("formularioSesion");
-const btnEnviarSesion = document.getElementById("btnEnviarSesion");
-
-btnSesion.addEventListener("click", () => {
-    formularioSesion.style.display = formularioSesion.style.display === "none" ? "block" : "none";
-});
-
-btnEnviarSesion.addEventListener("click", () => {
-    const nombre = document.getElementById("nombre").value.trim();
-    const apellido = document.getElementById("apellido").value.trim();
-    const correo = document.getElementById("correo").value.trim();
-
-    if (nombre && apellido && correo) {
-        const usuario = { nombre, apellido, correo };
-        localStorage.setItem("usuario", JSON.stringify(usuario));
-
-        alert(`Bienvenido/a ${nombre} ${apellido}\nCorreo: ${correo}`);
-        console.log("Usuario guardado:", usuario);
-        formularioSesion.style.display = "none";
-    } else {
-        alert("Por favor completá todos los campos.");
-    }
 });
