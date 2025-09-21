@@ -118,3 +118,389 @@ footer img {
   animation: flash 0.4s ease;
 }
 
+.bg-adidas{
+  background: linear-gradient(135deg, #f8f9fa, #0a3d62);
+}
+
+.navfooter-adidas{
+  background-color: #083772;
+}
+
+.footer{
+  color: #083772;
+}
+
+.logoFlex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 30vh;
+}
+
+.text{
+  margin-left: 53vh;
+  font-size: 100px;
+}
+
+.imgAdidas{
+  margin-left: 90vh;
+  margin-top: 10vh;
+}
+
+/* ---------------- PRESENTACIÓN ---------------- */
+.presentacion-section {
+  padding: 100px 20px;
+  color: white;
+  border-radius: 0 0 40px 40px;
+}
+
+.titulo-colab {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.subtitulo-colab {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.logos-colab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.logos-colab img {
+  height: 120px;
+  transition: transform 0.3s ease;
+}
+.logos-colab img:hover {
+  transform: scale(1.1);
+}
+
+.x-sep {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+/* ---------------- PRODUCTO ---------------- */
+.producto-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.producto-img {
+  max-width: 85%;
+  border-radius: 15px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.producto-img:hover {
+  transform: scale(1.05);
+}
+
+.producto-title {
+  font-size: 2.5rem;
+  color: #0a3d62;
+  margin-bottom: 20px;
+}
+
+.producto-desc {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.imgCampera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 10vh;
+  gap: 2rem;
+  padding: 20px;
+}
+
+.imgCampera div{
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.imgCampera div img{
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Footer y Navbar mismo color */
+.navfooter-adidas,
+footer .card-body {
+  background-color: #083772;
+  color: white;
+}
+
+.adidastext{
+  margin-left: 50vh;
+}
+
+.producto-info {
+  flex: 1;
+  max-width: 400px;
+}
+
+.producto-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.producto-info li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* --- Video Promocional --- */
+.video-promo {
+  width: 100%;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container {
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Coloca el texto al lado de la imagen */
+.imgCampera {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;        
+  padding: 40px;
+}
+
+.caracteristicas-texto {
+  flex: 1;
+  font-size: 1.4rem;
+  line-height: 1.9;
+  color: #222;
+}
+
+.caracteristicas-texto h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0a3d62;
+}
+
+.caracteristicas-texto p {
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Quitar estilo de "card" al texto dentro de #adidas */
+#adidas .caracteristicas-texto {
+  all: unset;               /* borra estilos heredados de .imgCampera div */
+  display: block;
+  flex: 1;                  /* ocupa todo el espacio disponible */
+  font-size: 1.5rem;        /* más grande */
+  line-height: 2;           /* más alto */
+  color: #222;
+  margin-left: 3rem;        /* separación respecto a la imagen */
+}
+
+#adidas .caracteristicas-texto h3 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #0a3d62;
+}
+
+#adidas .caracteristicas-texto p {
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+/* ---- Video de fondo en presentación ---- */
+.presentacion-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* pantalla completa */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.presentacion-section .video-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* hace que el video cubra todo */
+  z-index: -1;       /* lo manda atrás */
+}
+
+.presentacion-contenido {
+  position: relative;
+  color: white;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  z-index: 1;
+}
+
+.video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.presentacion-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+.presentacion-contenido {
+    color: white;
+    z-index: 2;
+}
+
+/* --- Ajustes responsive para mobile S (≤ 320px) --- */
+@media screen and (max-width: 360px) {
+  /* Presentación Adidas */
+  .titulo-colab {
+    font-size: 2rem;
+  }
+
+  .subtitulo-colab {
+    font-size: 1rem;
+  }
+
+  .logos-colab img {
+    height: 70px;
+  }
+
+  /* Sección Campera */
+  .imgCampera {
+    flex-direction: column;       /* apila imagen y texto */
+    align-items: center;          /* centra en pantalla */
+    margin-left: 0;               /* elimina margen fijo */
+    padding: 15px;
+    gap: 1rem;
+  }
+
+  .caracteristicas-texto {
+    font-size: 1rem;              /* más chico para que entre */
+    line-height: 1.5;
+    margin-left: 0 !important;    /* anula separación lateral */
+    text-align: center;           /* centra el texto */
+  }
+
+  .caracteristicas-texto h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Ajuste del video de fondo */
+  .presentacion-section {
+    height: auto;                 /* deja que crezca según contenido */
+    min-height: 100vh;            /* al menos ocupa la pantalla */
+    padding: 60px 10px;
+  }
+
+  .presentacion-contenido {
+    padding: 0 10px;
+  }
+}
+
+/* --- Ajustes responsive para Mobile M (≤ 375px) --- */
+@media screen and (max-width: 375px) {
+  .titulo-colab {
+    font-size: 2.2rem;
+  }
+
+  .subtitulo-colab {
+    font-size: 1.1rem;
+  }
+
+  .logos-colab img {
+    height: 80px;
+  }
+
+  .imgCampera {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    padding: 20px;
+    gap: 1.2rem;
+  }
+
+  .caracteristicas-texto {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  .caracteristicas-texto h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* --- Ajustes responsive para Mobile L (≤ 425px) --- */
+@media screen and (max-width: 425px) {
+  .titulo-colab {
+    font-size: 2.4rem;
+  }
+
+  .subtitulo-colab {
+    font-size: 1.2rem;
+  }
+
+  .logos-colab img {
+    height: 90px;
+  }
+
+  .imgCampera {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    padding: 25px;
+    gap: 1.5rem;
+  }
+
+  .caracteristicas-texto {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  .caracteristicas-texto h3 {
+    font-size: 1.7rem;
+  }
+}

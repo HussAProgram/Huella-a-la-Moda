@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADIDASxHUELLA</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/images/faviconADIDAS.ico" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- CSS Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!--CSS Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!--Script Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <!--Script SweetAlert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--Script Toastify-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+<body class="bg-adidas">
+  <!--NavBar-->
+  <nav class="navbar navbar-expand-lg navfooter-adidas">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/index.html"><img src="/images/adidasxhuella.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/pages/quienessomos.html"><h3>¿Quiénes Somos?</h3></a>
+          <a class="nav-link" href="/pages/comolohacemos.html"><h3>¿Cómo lo hacemos?</h3></a>
+          <a class="nav-link" href="/pages/dogsign.html"><h3>Dog-Sign</h3></a>
+          <a class="nav-link" href="/pages/adidasxhuella.html"><h3>ADIDASxHUELLA</h3></a>
+        </div>
+      </div>
+      <form class="d-flex" role="search">
+        <button type="button" id="BotonCarrito" class="btn btn-dark">🛒
+          <span id="contadorCarrito" class="badge bg-secondary">0</span>
+        </button>
+       </form>
+    </div>
+  </nav>
+  <!-- Presentación con video de fondo -->
+  <div class="presentacion-section">
+    <video autoplay muted loop playsinline class="video-fondo">
+      <source src="/images/Anuncio ADIDAS x HUELLA.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="presentacion-contenido text-center">
+      <h1 class="titulo-colab">ADIDAS x HUELLA</h1>
+      <p class="subtitulo-colab">Moda y comodidad para tu mejor amigo 🐾</p>
+      <div class="logos-colab">
+        <img src="/images/logoinadidas.png" alt="Logo Huella a la moda">
+        <span class="x-sep">X</span>
+        <img src="/images/adidas.png" alt="Logo Adidas">
+      </div>
+    </div>
+  </div>
+  </section>
+  <!--PRODUCTO-->
+  <section id="adidas" class="imgCampera">
+    <div class="caracteristicas-texto">
+    <h3>Campera Impermeable Adidas</h3>
+    <p>✔ Material impermeable y transpirable</p>
+    <p>✔ Disponible en varios talles</p>
+    <p>✔ Diseño exclusivo ADIDAS x HUELLA</p>
+    <p>✔ Cómoda y resistente para tu mascota</p>
+  </div>
+  </section>
+  <!--Footer-->
+  <footer>
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">¡SIGUENOS!</h5>
+        <h6 class="card-text">Instagram</h6>
+        <a href="https://www.instagram.com/huellaalamoda_/?utm_source=ig_web_button_share_sheet" class="btn btn-primary"><img src="/images/Instagram.png" alt=""></a>
+      </div>
+    </div>
+  </footer>
+<!-- JS -->
+  <script defer src="/adidas.js"></script>
+</body>
+</html>

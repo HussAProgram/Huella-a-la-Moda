@@ -61,5 +61,12 @@
     "imagen": "images/SombreroVerano.png",
     "categoria": "Verano",
     "tipo": "Sombrero"
+  },
+  {
+    "nombre": "Corbata Dog-Say",
+    "precio": 110000,
+    "imagen": "images/corbata.png",
+    "categoria": "NEW",
+    "tipo": "Corbata"
   }
 ]
