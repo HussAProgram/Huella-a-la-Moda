@@ -504,3 +504,11 @@ footer .card-body {
     font-size: 1.7rem;
   }
 }
+
+.videoCorbata{
+  display: flex;
+  justify-content: end;
+  width: 50%;
+  height: 75%;
+  margin-top: 55px;
+}
